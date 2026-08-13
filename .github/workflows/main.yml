@@ -1,0 +1,18 @@
+name: My first CI
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+
+      - name: show lists
+        run: ls
+
+      - name: show python version
+        run: python --version
