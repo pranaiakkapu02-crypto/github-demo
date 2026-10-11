@@ -1,19 +1,40 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'day 138 hello'
+                echo 'Day 139 - Starting the build'
+                sh 'pwd'
+                sh 'whoami'
             }
         }
 
-        stage('check workspace') {
+        stage('Verify Workspace') {
             steps {
-                sh 'pwd'
+                echo 'Checking repository files'
                 sh 'ls -la'
             }
         }
+
+        stage('Test') {
+            steps {
+                echo 'Basic pipeline test passed'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'SUCCESS: Pipeline completed'
+        }
+
+        failure {
+            echo 'FAILURE: Check Console Output'
+        }
+
+        always {
+            echo 'Day 139 pipeline execution finished'
+        }
     }
 }
-                
