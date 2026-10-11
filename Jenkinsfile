@@ -3,9 +3,10 @@ pipeline {
     
     stages {
         stage('Hello') {
-            echo 'day 138 hello'
+            steps {
+                echo 'day 138 hello'
+            }
         }
-    }
 
         stage('check workspace') {
             steps {
